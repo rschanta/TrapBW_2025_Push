@@ -190,9 +190,11 @@ def reflection_analysis(array, h, dt, dl, g=9.81):
     }
 
     # debug
+    '''
     fig, ax = plt.subplots(facecolor='w')
     ax.plot(f[range_idx],Si, f[range_idx],Sr, f[range_idx],Sfcheck[range_idx,0])
     plt.savefig("waveref3_energy.png")
+    '''
 #     %     FigHandle = figure('Position', [100, 100, 700, 597]);
 # %     subplot(3,1,1)
 # %     plot(dt:dt:dt*length(array),array(:,1)+0.10,'k',dt:dt:dt*length(array),array(:,2),'r',dt:dt:dt*length(array),array(:,3)-0.10,'b')

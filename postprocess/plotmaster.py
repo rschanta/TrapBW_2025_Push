@@ -6,10 +6,12 @@ import os
 import pandas as pd
 import scipy.signal as sig
 from datetime import datetime
+
+
 try:
     from parallel import simple as sparallel
 except ModuleNotFoundError:
-    print("parallel.py not found, continue in serial\n")
+    print("\tparallel.py not found, continue in serial")
 
 # Dispersion relationship framed as a root problem
 def f(k,w,h,g):
@@ -129,7 +131,7 @@ def plot_PSD(ppath,data,stations,steady,xfactor=16.):
     tdata = []
     edata = []
     for index, stationData in enumerate(data):
-        fig,ax = plt.subplots(figsize=(15,10),facecolor='white')
+        #fig,ax = plt.subplots(figsize=(15,10),facecolor='white')
         timeS = stationData[:,0] # first row in sta_000# is time stamp
         etaS = stationData[:,1] # second row is time series of eta (third and fourth are U and V)
 
@@ -146,6 +148,7 @@ def plot_PSD(ppath,data,stations,steady,xfactor=16.):
         Tp = 1/f[np.argmax(Pxx_spec_den[0:pltrange])]
 
         fnum = '%.4d' %(stations[index])
+        '''
         ax.plot(f[0:pltrange],Pxx_spec_den[0:pltrange],linewidth=2.0,label='station '+str(fnum)+' with '+r'$H_{sig}$'+'={0:6.4f} m'.format(Hmo))
         ax.grid()
         ax.set_xlabel('frequency $[Hz]$', fontsize=12)
@@ -156,7 +159,7 @@ def plot_PSD(ppath,data,stations,steady,xfactor=16.):
         ax.legend()
         plt.savefig(os.path.join(ppath,'spectra_sta'+str(fnum)+'_st'+str(int(steady))+'.png'), dpi=600)
         plt.close()
-
+        '''
         hdata.append(Hmo)
         tdata.append(Tp)
         edata.append(totalE)

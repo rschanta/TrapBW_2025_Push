@@ -87,12 +87,13 @@ def reflection(eta1, eta2, dl, dt, h, **kwargs):
     A2 = np.real(X2[0:int(n / 2)])
     B2 = np.imag(X2[0:int(n / 2)])
 
-    from matplotlib import pyplot as plt
+ 
+    '''
     plt.figure()
     plt.plot(range(0, n), X1, "r-")
     plt.plot(range(0,n), X2)
     plt.savefig('waveref_nontrucated.png')
-
+    '''
 
     # init k values
     #   wn() uses Newton-Raphson Method and     recursively iterates 
@@ -146,13 +147,14 @@ def reflection(eta1, eta2, dl, dt, h, **kwargs):
     #   equation (9), Goda 76
     K_r = sqrt(e_r / e_i)
 
+    '''
     fig = plt.figure()
     # plt.subplot(1, 2, 1)
     plt.plot(w[i_min:i_max], a_i[i_min:i_max], "r-")
     # plt.subplot(1, 2, 2)
     plt.plot(w[i_min:i_max], a_r[i_min:i_max])
     plt.savefig("waveref_amplitude.png")
-
+    '''
     # fig = plt.figure()
     # # plt.subplot(1, 2, 1)
     # plt.plot(range(0, len(e_i)), e_i, "r-")
